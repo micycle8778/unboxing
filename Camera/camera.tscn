@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://dbeucn1wqoanu"]
+
+[ext_resource type="Script" path="res://Camera/camera.gd" id="1_bcqnb"]
+[ext_resource type="PackedScene" uid="uid://ccwno5i8q5tqt" path="res://Square/square.tscn" id="2_jx7fu"]
+[ext_resource type="Script" path="res://Camera/DebugRange.gd" id="3_pkcoy"]
+[ext_resource type="Script" path="res://DebugRayCast.gd" id="4_8se0w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ycb5e"]
+size = Vector2(68, 32)
+
+[node name="Camera" type="StaticBody2D"]
+collision_layer = 4
+script = ExtResource("1_bcqnb")
+
+[node name="Square" parent="." instance=ExtResource("2_jx7fu")]
+width = 70.0
+
+[node name="Square2" parent="." instance=ExtResource("2_jx7fu")]
+position = Vector2(34, 0)
+width = 18.0
+height = 18.0
+color = Color(0, 0, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ycb5e")
+
+[node name="DebugRange" type="Node2D" parent="."]
+script = ExtResource("3_pkcoy")
+color = Color(1, 0, 0, 0.184314)
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+unique_name_in_owner = true
+collision_mask = 3
+
+[node name="DebugRayCast" type="Node2D" parent="RayCast2D"]
+script = ExtResource("4_8se0w")
