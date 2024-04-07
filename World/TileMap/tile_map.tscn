@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://c8twqm4jg114m"]
+
+[ext_resource type="Texture2D" uid="uid://tb14i2jy4pbk" path="res://World/TileMap/black-tile.png" id="1_2h0xj"]
+[ext_resource type="Texture2D" uid="uid://cb76tlshfo8sy" path="res://World/TileMap/tile.png" id="2_rilgj"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_inevl"]
+polygon = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ur5ld"]
+texture = ExtResource("1_2h0xj")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_inevl")
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_jacom"]
+polygon = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pw78u"]
+texture = ExtResource("2_rilgj")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_jacom")
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+
+[sub_resource type="TileSet" id="TileSet_j61nq"]
+tile_size = Vector2i(64, 64)
+occlusion_layer_0/light_mask = 1
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_pw78u")
+sources/0 = SubResource("TileSetAtlasSource_ur5ld")
+
+[node name="TileMap" type="TileMap"]
+z_index = 10
+tile_set = SubResource("TileSet_j61nq")
+format = 2

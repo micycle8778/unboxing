@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://dwmqlfkacpaq3"]
+
+[ext_resource type="PackedScene" uid="uid://df31hian77jf1" path="res://Player/player.tscn" id="1_jo5to"]
+[ext_resource type="Script" path="res://World/base_world.gd" id="1_pjnam"]
+[ext_resource type="PackedScene" uid="uid://c8twqm4jg114m" path="res://World/TileMap/tile_map.tscn" id="2_lc8fk"]
+[ext_resource type="PackedScene" uid="uid://divpu2qgx36m0" path="res://UIs/reset_indicator.tscn" id="4_ins3d"]
+
+[node name="BaseWorld" type="Node2D"]
+script = ExtResource("1_pjnam")
+
+[node name="Player" parent="." instance=ExtResource("1_jo5to")]
+
+[node name="TileMap" parent="." instance=ExtResource("2_lc8fk")]
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+
+[node name="ResetIndicator" parent="UILayer" instance=ExtResource("4_ins3d")]

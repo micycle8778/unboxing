@@ -3,6 +3,7 @@ extends StaticBody2D
 
 @export var range := 1300.0
 @export var angle := 45.0
+@export var debug := false
 
 func print_class(obj: Node):
     print(obj.get_class())
@@ -12,6 +13,9 @@ func _ready():
     ray_cast_2d.add_exception(self)
     
 func _process(_delta):
+    if Player.instance == null:
+        return
+    
     ray_cast_2d.target_position = ray_cast_2d.to_local(Player.instance.global_position).normalized() * range
     ray_cast_2d.force_raycast_update()
     if \

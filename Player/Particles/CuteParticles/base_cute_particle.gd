@@ -3,7 +3,7 @@ extends RigidBody2D
 @onready var timer = %Timer
 func _ready():
     # set kill time
-    timer.start(randf_range(1, 3))
+    timer.start(randf_range(3, 5))
     
     # fling the particles up
     apply_central_impulse(

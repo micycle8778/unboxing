@@ -1,10 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://df31hian77jf1"]
+[gd_scene load_steps=13 format=3 uid="uid://df31hian77jf1"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_mk0k0"]
 [ext_resource type="Texture2D" uid="uid://46qh4l77tnyb" path="res://Player/cute.png" id="2_c27lw"]
 [ext_resource type="PackedScene" uid="uid://b30f2oboagg5v" path="res://Player/Particles/jump_particles.tscn" id="2_jx08f"]
 [ext_resource type="PackedScene" uid="uid://tdx4mnmed4fv" path="res://Player/Particles/CuteParticles/7point.tscn" id="2_k7cga"]
-[ext_resource type="Script" path="res://Player/SpeedLabel.gd" id="3_1t205"]
 [ext_resource type="Texture2D" uid="uid://nlkc5ydvauty" path="res://Player/standing.png" id="3_bxyjc"]
 [ext_resource type="PackedScene" uid="uid://bluka03bn3g43" path="res://Player/Particles/CuteParticles/asterisk.tscn" id="3_ij38d"]
 [ext_resource type="PackedScene" uid="uid://ddc40uyc0m41j" path="res://Player/Particles/CuteParticles/spikey.tscn" id="4_qhylw"]
@@ -49,18 +48,6 @@ flip_h = true
 [node name="Camera2D" type="Camera2D" parent="."]
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
-
-[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
-
-[node name="SpeedLabel" type="Label" parent="Camera2D/CanvasLayer"]
-offset_left = 454.0
-offset_top = -395.0
-offset_right = 646.0
-offset_bottom = -320.0
-text = "Speed: 69px/s
-Horizontal Speed: 42px/s
-Vertical Speed: 19px/s"
-script = ExtResource("3_1t205")
 
 [node name="Left" type="Area2D" parent="."]
 unique_name_in_owner = true

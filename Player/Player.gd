@@ -15,6 +15,8 @@ static var instance: Player
 @export var max_speed := 1000.0
 @export var air_control := .4
 
+var can_move := true
+
 var watchers: Dictionary
 var watched: bool:
     get: 
@@ -40,7 +42,7 @@ func jump_pressed():
     var result := Time.get_ticks_msec() - last_jump_pressed <= 16 * 4
     if result:
         last_jump_pressed = -INF
-    return result
+    return result and can_move
 
 var watched_last_frame := false
 func _process(_delta):
@@ -71,9 +73,10 @@ func is_on_side_area() -> bool:
 func side_area_normal() -> Vector2:
     assert(is_on_side_area())
     
+    const up_factor = Vector2(0, 0)
     if left.has_overlapping_bodies():
-        return Vector2.RIGHT
-    return Vector2.LEFT
+        return (Vector2.RIGHT + up_factor).normalized()
+    return (Vector2.LEFT + up_factor).normalized()
 
 func get_side_area() -> Area2D:
     assert(is_on_side_area())
@@ -85,12 +88,13 @@ func get_side_area() -> Area2D:
 var stored_velocity := 0.0
 func _physics_process(delta):
     var horz = Input.get_axis("left", "right")
-    
-    var overspeed: bool = abs(velocity.x) > max_speed
-    var input_disagreement: bool = horz != sign(velocity.x)
-    
+    if not can_move:
+        horz = 0
     if watched:
         horz = 0
+    
+    var overspeed: bool = abs(velocity.x) > max_speed
+    var input_disagreement: bool = horz != sign(velocity.x) or horz == 0
     
     if horz < 0:
         flipped = true
@@ -130,7 +134,7 @@ func _physics_process(delta):
             particles.scale.x = side_area_normal().x
             get_parent().add_child(particles)
             
-            flipped = side_area_normal() == Vector2.LEFT
+            flipped = get_side_area() == left
     else:
         stored_velocity = velocity.length()
     

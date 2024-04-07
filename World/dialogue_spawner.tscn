@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dswrfs3xrd26w"]
+
+[ext_resource type="Script" path="res://World/dialogue_spawner.gd" id="1_tjpxi"]
+[ext_resource type="PackedScene" uid="uid://db45s7aj0ry26" path="res://UIs/Dialogue.tscn" id="2_xhky7"]
+
+[node name="DialogueSpawner" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_tjpxi")
+dialogue_prefab = ExtResource("2_xhky7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

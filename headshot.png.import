@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cb76tlshfo8sy"
-path="res://.godot/imported/tile.png-59709ac5c60f150820583fd40308ae2d.ctex"
+uid="uid://2awb8kqj6h11"
+path="res://.godot/imported/headshot.png-65aa5f4ad2bf47d57dfad5a276fdb7d9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://World/tile.png"
-dest_files=["res://.godot/imported/tile.png-59709ac5c60f150820583fd40308ae2d.ctex"]
+source_file="res://headshot.png"
+dest_files=["res://.godot/imported/headshot.png-65aa5f4ad2bf47d57dfad5a276fdb7d9.ctex"]
 
 [params]
 

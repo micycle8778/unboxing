@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://drdj8h0tpb0bf"]
+
+[ext_resource type="Script" path="res://World/NextLevelAdvance.gd" id="1_3v6ms"]
+[ext_resource type="Texture2D" uid="uid://6qaxyhyy36wg" path="res://World/stairs.png" id="2_yh2el"]
+[ext_resource type="Texture2D" uid="uid://du48fbwf83r8p" path="res://World/2d_lights_and_shadows_neutral_point_light.webp" id="3_h5qxx"]
+[ext_resource type="Script" path="res://World/PulsatingLight.gd" id="4_1mosx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8uhni"]
+size = Vector2(128, 128)
+
+[node name="NextLevelAdvance" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_3v6ms")
+
+[node name="Stairs" type="Sprite2D" parent="."]
+texture = ExtResource("2_yh2el")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_8uhni")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+range_layer_min = -100
+range_layer_max = -20
+texture = ExtResource("3_h5qxx")
+script = ExtResource("4_1mosx")
+frequency = 3
+amplitude = 3
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
