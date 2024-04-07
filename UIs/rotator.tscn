@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://eomk88163cvj"]
+
+[ext_resource type="Script" path="res://UIs/Rotator.gd" id="1_s8jr6"]
+
+[node name="Rotator" type="Node"]
+script = ExtResource("1_s8jr6")
+min_rotation_speed = 35.0
+max_rotation_speed = 55.0

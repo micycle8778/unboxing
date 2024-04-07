@@ -1,0 +1,135 @@
+[gd_scene load_steps=7 format=3 uid="uid://deh8t88dtjwxv"]
+
+[ext_resource type="Texture2D" uid="uid://46qh4l77tnyb" path="res://Player/cute.png" id="1_3g5tk"]
+[ext_resource type="Texture2D" uid="uid://bnfoqu5wofs25" path="res://Player/Particles/CuteParticles/7point.png" id="2_aykpm"]
+[ext_resource type="PackedScene" uid="uid://eomk88163cvj" path="res://UIs/rotator.tscn" id="2_qyvs7"]
+[ext_resource type="Texture2D" uid="uid://dookus64qlwjh" path="res://Player/Particles/CuteParticles/asterisk.png" id="3_2oo7e"]
+[ext_resource type="Texture2D" uid="uid://uu8sfeube7jj" path="res://Player/Particles/CuteParticles/spikey.png" id="4_cwghm"]
+[ext_resource type="Texture2D" uid="uid://g8tk1eus166" path="res://Player/Particles/CuteParticles/star.png" id="5_33mbe"]
+
+[node name="WinScreen" type="Node2D"]
+
+[node name="Standing" type="Sprite2D" parent="."]
+position = Vector2(193, 649)
+rotation = 0.283297
+texture = ExtResource("1_3g5tk")
+
+[node name="Rotator" parent="Standing" instance=ExtResource("2_qyvs7")]
+min_rotation_speed = 75.0
+max_rotation_speed = 135.0
+start_after = 30.0
+
+[node name="Label" type="Label" parent="."]
+offset_left = 129.0
+offset_top = 47.0
+offset_right = 949.0
+offset_bottom = 320.0
+rotation = 0.0670689
+theme_override_font_sizes/font_size = 200
+text = "You win!"
+
+[node name="Rotator2" parent="Label" instance=ExtResource("2_qyvs7")]
+min_rotation_speed = 75.0
+max_rotation_speed = 135.0
+start_after = 10.0
+
+[node name="7Point" type="Sprite2D" parent="."]
+position = Vector2(541, 630)
+rotation = 0.750247
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_aykpm")
+
+[node name="Rotator2" parent="7Point" instance=ExtResource("2_qyvs7")]
+
+[node name="7Point3" type="Sprite2D" parent="."]
+position = Vector2(420, 766)
+rotation = -1.20325
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_aykpm")
+
+[node name="Rotator3" parent="7Point3" instance=ExtResource("2_qyvs7")]
+
+[node name="7Point2" type="Sprite2D" parent="."]
+position = Vector2(472, 680)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_aykpm")
+
+[node name="Rotator4" parent="7Point2" instance=ExtResource("2_qyvs7")]
+
+[node name="Asterisk" type="Sprite2D" parent="."]
+position = Vector2(496, 736)
+rotation = 0.656656
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_2oo7e")
+
+[node name="Rotator5" parent="Asterisk" instance=ExtResource("2_qyvs7")]
+
+[node name="Asterisk3" type="Sprite2D" parent="."]
+position = Vector2(631, 794)
+rotation = 2.47964
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_2oo7e")
+
+[node name="Rotator6" parent="Asterisk3" instance=ExtResource("2_qyvs7")]
+
+[node name="Asterisk2" type="Sprite2D" parent="."]
+position = Vector2(619, 647)
+rotation = 0.995405
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_2oo7e")
+
+[node name="Rotator7" parent="Asterisk2" instance=ExtResource("2_qyvs7")]
+
+[node name="Spikey" type="Sprite2D" parent="."]
+position = Vector2(648, 523)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_cwghm")
+
+[node name="Rotator8" parent="Spikey" instance=ExtResource("2_qyvs7")]
+
+[node name="Spikey2" type="Sprite2D" parent="."]
+position = Vector2(572, 709)
+rotation = -0.335541
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_cwghm")
+
+[node name="Rotator9" parent="Spikey2" instance=ExtResource("2_qyvs7")]
+
+[node name="Spikey3" type="Sprite2D" parent="."]
+position = Vector2(495, 841)
+rotation = 1.18308
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_cwghm")
+
+[node name="Rotator10" parent="Spikey3" instance=ExtResource("2_qyvs7")]
+
+[node name="Star" type="Sprite2D" parent="."]
+position = Vector2(563, 533)
+rotation = -0.886405
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_33mbe")
+
+[node name="Rotator12" parent="Star" instance=ExtResource("2_qyvs7")]
+
+[node name="Star2" type="Sprite2D" parent="."]
+position = Vector2(413, 844)
+rotation = -2.0987
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_33mbe")
+
+[node name="Rotator11" parent="Star2" instance=ExtResource("2_qyvs7")]
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 1476.0
+offset_top = 872.0
+offset_right = 1599.0
+offset_bottom = 895.0
+text = "i am out of time"
+
+[node name="Rotator3" parent="Label2" instance=ExtResource("2_qyvs7")]
+min_rotation_speed = 180.0
+max_rotation_speed = 360.0
+start_after = 40.0
+
+[node name="Rotator" parent="." instance=ExtResource("2_qyvs7")]
+start_after = 60.0

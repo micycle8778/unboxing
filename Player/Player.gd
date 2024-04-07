@@ -73,10 +73,9 @@ func is_on_side_area() -> bool:
 func side_area_normal() -> Vector2:
     assert(is_on_side_area())
     
-    const up_factor = Vector2(0, 0)
     if left.has_overlapping_bodies():
-        return (Vector2.RIGHT + up_factor).normalized()
-    return (Vector2.LEFT + up_factor).normalized()
+        return Vector2.RIGHT
+    return Vector2.LEFT
 
 func get_side_area() -> Area2D:
     assert(is_on_side_area())
@@ -134,7 +133,7 @@ func _physics_process(delta):
             particles.scale.x = side_area_normal().x
             get_parent().add_child(particles)
             
-            flipped = get_side_area() == left
+            flipped = side_area_normal() == Vector2.LEFT
     else:
         stored_velocity = velocity.length()
     
