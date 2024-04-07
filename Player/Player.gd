@@ -3,6 +3,9 @@ extends CharacterBody2D
 
 static var instance: Player
 
+@export var particles: Array[PackedScene]
+
+@export_group("Movement")
 @export var gravity := 2000
 @export var jump_power := 1000
 @export var move_accel := 2500
@@ -22,6 +25,12 @@ var watched: bool:
 
 var flipped := false
 
+func spawn_particles():
+    for i in range(randi_range(3, 5)):
+        var particle := particles[randi() % len(particles)].instantiate()
+        get_parent().add_child(particle)
+        particle.global_position = global_position
+
 func _ready():
     instance = self
 
@@ -32,11 +41,15 @@ func jump_pressed():
         last_jump_pressed = -INF
     return result
 
+var watched_last_frame := false
 func _process(delta):
     if Input.is_action_just_pressed("jump"):
         last_jump_pressed = Time.get_ticks_msec()
     
     if watched:
+        if not watched_last_frame:
+            spawn_particles()
+        
         cute.visible = true
         cute.flip_h = flipped
         
@@ -46,6 +59,8 @@ func _process(delta):
         cute.visible = false
         standing.visible = not flipped
         standing_flipped.visible = flipped
+    
+    watched_last_frame = watched
     
 @onready var left = %Left
 @onready var right = %Right

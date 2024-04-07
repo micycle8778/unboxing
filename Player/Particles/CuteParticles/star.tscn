@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3cdvfiv7daj"]
+
+[ext_resource type="PackedScene" uid="uid://buufwy6vqse5x" path="res://Player/Particles/CuteParticles/base_cute_particle.tscn" id="1_d4qom"]
+[ext_resource type="Texture2D" uid="uid://g8tk1eus166" path="res://Player/Particles/CuteParticles/star.png" id="2_p8066"]
+
+[node name="BaseParticle" instance=ExtResource("1_d4qom")]
+
+[node name="Star" type="Sprite2D" parent="." index="0"]
+scale = Vector2(0.287666, 0.287666)
+texture = ExtResource("2_p8066")

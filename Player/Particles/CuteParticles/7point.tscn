@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://tdx4mnmed4fv"]
+
+[ext_resource type="PackedScene" uid="uid://buufwy6vqse5x" path="res://Player/Particles/CuteParticles/base_cute_particle.tscn" id="1_d4qom"]
+[ext_resource type="Texture2D" uid="uid://bnfoqu5wofs25" path="res://Player/Particles/CuteParticles/7point.png" id="2_7paso"]
+
+[node name="BaseParticle" instance=ExtResource("1_d4qom")]
+
+[node name="7Point" type="Sprite2D" parent="." index="1"]
+scale = Vector2(0.300044, 0.300044)
+texture = ExtResource("2_7paso")

@@ -1,9 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://df31hian77jf1"]
+[gd_scene load_steps=13 format=3 uid="uid://df31hian77jf1"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_mk0k0"]
 [ext_resource type="Texture2D" uid="uid://46qh4l77tnyb" path="res://Player/cute.png" id="2_c27lw"]
+[ext_resource type="PackedScene" uid="uid://tdx4mnmed4fv" path="res://Player/Particles/CuteParticles/7point.tscn" id="2_nd1ql"]
 [ext_resource type="Script" path="res://Player/SpeedLabel.gd" id="3_1t205"]
 [ext_resource type="Texture2D" uid="uid://nlkc5ydvauty" path="res://Player/standing.png" id="3_bxyjc"]
+[ext_resource type="PackedScene" uid="uid://bluka03bn3g43" path="res://Player/Particles/CuteParticles/asterisk.tscn" id="3_n5jfc"]
+[ext_resource type="PackedScene" uid="uid://ddc40uyc0m41j" path="res://Player/Particles/CuteParticles/spikey.tscn" id="4_kiweh"]
+[ext_resource type="Texture2D" uid="uid://yrhupkh5k1ms" path="res://Player/background.png" id="5_lm2os"]
+[ext_resource type="PackedScene" uid="uid://c3cdvfiv7daj" path="res://Player/Particles/CuteParticles/star.tscn" id="5_ps7jj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s5hmg"]
 size = Vector2(15.3889, 38)
@@ -19,6 +24,7 @@ z_index = -10
 scale = Vector2(1.5, 1.5)
 collision_layer = 2
 script = ExtResource("1_mk0k0")
+particles = Array[PackedScene]([ExtResource("2_nd1ql"), ExtResource("3_n5jfc"), ExtResource("4_kiweh"), ExtResource("5_ps7jj")])
 
 [node name="Cute" type="Sprite2D" parent="."]
 unique_name_in_owner = true
@@ -39,12 +45,16 @@ texture = ExtResource("3_bxyjc")
 flip_h = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
 
-[node name="SpeedLabel" type="Label" parent="Camera2D"]
-offset_left = 302.667
-offset_top = -263.333
-offset_right = 494.667
-offset_bottom = -188.333
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+
+[node name="SpeedLabel" type="Label" parent="Camera2D/CanvasLayer"]
+offset_left = 454.0
+offset_top = -395.0
+offset_right = 646.0
+offset_bottom = -320.0
 text = "Speed: 69px/s
 Horizontal Speed: 42px/s
 Vertical Speed: 19px/s"
@@ -69,3 +79,16 @@ shape = SubResource("RectangleShape2D_nbg3j")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(7.33333, 0)
 shape = SubResource("RectangleShape2D_2r4xu")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1575, 955)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(0, -4)
+texture = ExtResource("5_lm2os")
+centered = false
+
+[node name="CanvasModulate" type="CanvasModulate" parent="ParallaxBackground"]
+color = Color(0.831373, 0.831373, 0.831373, 1)
