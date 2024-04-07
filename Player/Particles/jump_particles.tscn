@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://b30f2oboagg5v"]
+
+[sub_resource type="Gradient" id="Gradient_70cwx"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bsdm0"]
+gradient = SubResource("Gradient_70cwx")
+width = 10
+height = 10
+
+[sub_resource type="Gradient" id="Gradient_27nvw"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.74, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="JumpParticles" type="CPUParticles2D"]
+emitting = false
+lifetime = 5.0
+one_shot = true
+speed_scale = 5.0
+explosiveness = 1.0
+randomness = 1.0
+lifetime_randomness = 0.45
+texture = SubResource("GradientTexture2D_bsdm0")
+direction = Vector2(1, -0.5)
+spread = 34.09
+gravity = Vector2(0, 100)
+initial_velocity_min = 150.0
+initial_velocity_max = 200.0
+color = Color(0.913725, 0.913725, 0.913725, 1)
+color_ramp = SubResource("Gradient_27nvw")

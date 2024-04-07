@@ -1,14 +1,15 @@
-[gd_scene load_steps=13 format=3 uid="uid://df31hian77jf1"]
+[gd_scene load_steps=14 format=3 uid="uid://df31hian77jf1"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_mk0k0"]
 [ext_resource type="Texture2D" uid="uid://46qh4l77tnyb" path="res://Player/cute.png" id="2_c27lw"]
-[ext_resource type="PackedScene" uid="uid://tdx4mnmed4fv" path="res://Player/Particles/CuteParticles/7point.tscn" id="2_nd1ql"]
+[ext_resource type="PackedScene" uid="uid://b30f2oboagg5v" path="res://Player/Particles/jump_particles.tscn" id="2_jx08f"]
+[ext_resource type="PackedScene" uid="uid://tdx4mnmed4fv" path="res://Player/Particles/CuteParticles/7point.tscn" id="2_k7cga"]
 [ext_resource type="Script" path="res://Player/SpeedLabel.gd" id="3_1t205"]
 [ext_resource type="Texture2D" uid="uid://nlkc5ydvauty" path="res://Player/standing.png" id="3_bxyjc"]
-[ext_resource type="PackedScene" uid="uid://bluka03bn3g43" path="res://Player/Particles/CuteParticles/asterisk.tscn" id="3_n5jfc"]
-[ext_resource type="PackedScene" uid="uid://ddc40uyc0m41j" path="res://Player/Particles/CuteParticles/spikey.tscn" id="4_kiweh"]
+[ext_resource type="PackedScene" uid="uid://bluka03bn3g43" path="res://Player/Particles/CuteParticles/asterisk.tscn" id="3_ij38d"]
+[ext_resource type="PackedScene" uid="uid://ddc40uyc0m41j" path="res://Player/Particles/CuteParticles/spikey.tscn" id="4_qhylw"]
+[ext_resource type="PackedScene" uid="uid://c3cdvfiv7daj" path="res://Player/Particles/CuteParticles/star.tscn" id="5_bpunf"]
 [ext_resource type="Texture2D" uid="uid://yrhupkh5k1ms" path="res://Player/background.png" id="5_lm2os"]
-[ext_resource type="PackedScene" uid="uid://c3cdvfiv7daj" path="res://Player/Particles/CuteParticles/star.tscn" id="5_ps7jj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s5hmg"]
 size = Vector2(15.3889, 38)
@@ -24,7 +25,8 @@ z_index = -10
 scale = Vector2(1.5, 1.5)
 collision_layer = 2
 script = ExtResource("1_mk0k0")
-particles = Array[PackedScene]([ExtResource("2_nd1ql"), ExtResource("3_n5jfc"), ExtResource("4_kiweh"), ExtResource("5_ps7jj")])
+cute_particles = Array[PackedScene]([ExtResource("2_k7cga"), ExtResource("3_ij38d"), ExtResource("4_qhylw"), ExtResource("5_bpunf")])
+jump_particles = ExtResource("2_jx08f")
 
 [node name="Cute" type="Sprite2D" parent="."]
 unique_name_in_owner = true

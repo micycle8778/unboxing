@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://buufwy6vqse5x"]
 
-[ext_resource type="Script" path="res://Player/Particles/CuteParticles/base_cute_particle.gd" id="1_3w3gq"]
+[ext_resource type="Script" path="res://Player/Particles/CuteParticles/base_cute_particle.gd" id="1_asqnv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_evb7s"]
 size = Vector2(30, 30)
@@ -9,7 +9,7 @@ size = Vector2(30, 30)
 scale = Vector2(1, 0.972734)
 collision_layer = 8
 collision_mask = 9
-script = ExtResource("1_3w3gq")
+script = ExtResource("1_asqnv")
 
 [node name="Timer" type="Timer" parent="."]
 unique_name_in_owner = true

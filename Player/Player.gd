@@ -3,7 +3,8 @@ extends CharacterBody2D
 
 static var instance: Player
 
-@export var particles: Array[PackedScene]
+@export var cute_particles: Array[PackedScene]
+@export var jump_particles: PackedScene
 
 @export_group("Movement")
 @export var gravity := 2000
@@ -27,7 +28,7 @@ var flipped := false
 
 func spawn_particles():
     for i in range(randi_range(3, 5)):
-        var particle := particles[randi() % len(particles)].instantiate()
+        var particle := cute_particles[randi() % len(cute_particles)].instantiate()
         get_parent().add_child(particle)
         particle.global_position = global_position
 
@@ -42,7 +43,7 @@ func jump_pressed():
     return result
 
 var watched_last_frame := false
-func _process(delta):
+func _process(_delta):
     if Input.is_action_just_pressed("jump"):
         last_jump_pressed = Time.get_ticks_msec()
     
@@ -73,6 +74,13 @@ func side_area_normal() -> Vector2:
     if left.has_overlapping_bodies():
         return Vector2.RIGHT
     return Vector2.LEFT
+
+func get_side_area() -> Area2D:
+    assert(is_on_side_area())
+    
+    if left.has_overlapping_bodies():
+        return left
+    return right
 
 var stored_velocity := 0.0
 func _physics_process(delta):
@@ -112,16 +120,17 @@ func _physics_process(delta):
     if is_on_side_area(): 
         if not watched and jump_pressed():
             var mul = max(lerp(2.0, 1.0, inverse_lerp(0, 2000, stored_velocity)), 1)
-            print("stored_velocity = " + str(stored_velocity))
-            print("side_area_normal() = " + str(side_area_normal()))
-            print("mul = " + str(mul))
             velocity = side_area_normal() * stored_velocity * mul
             velocity.y -= jump_power
-            print("post_velocity.normalized() = " + str(velocity.normalized()))
+
+            var particles := jump_particles.instantiate() as CPUParticles2D
+            particles.global_position = global_position
+            particles.emitting = true
+            particles.finished.connect(particles.queue_free)
+            particles.scale.x = side_area_normal().x
+            get_parent().add_child(particles)
             
             flipped = side_area_normal() == Vector2.LEFT
-            
-            print("")
     else:
         stored_velocity = velocity.length()
     
