@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://eg8mu82srgfp"]
+[gd_scene load_steps=9 format=3 uid="uid://eg8mu82srgfp"]
 
 [ext_resource type="PackedScene" uid="uid://dwmqlfkacpaq3" path="res://World/base_world.tscn" id="1_i8my7"]
 [ext_resource type="PackedScene" uid="uid://dbeucn1wqoanu" path="res://Camera/camera.tscn" id="2_jjugl"]
 [ext_resource type="PackedScene" uid="uid://dswrfs3xrd26w" path="res://World/dialogue_spawner.tscn" id="3_wdqrx"]
 [ext_resource type="Script" path="res://DialogueText.gd" id="4_2av8h"]
 [ext_resource type="PackedScene" uid="uid://drdj8h0tpb0bf" path="res://World/NextLevelAdvance.tscn" id="5_8oh0a"]
+[ext_resource type="PackedScene" uid="uid://uhay23o2be5t" path="res://World/Worlds/2.tscn" id="6_yux18"]
 
 [sub_resource type="Resource" id="Resource_48voa"]
 script = ExtResource("4_2av8h")
@@ -44,3 +45,4 @@ shape = SubResource("RectangleShape2D_j6yev")
 
 [node name="NextLevelAdvance" parent="." index="7" instance=ExtResource("5_8oh0a")]
 position = Vector2(7296, 2368)
+next_scene = ExtResource("6_yux18")

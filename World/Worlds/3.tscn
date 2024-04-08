@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dld0svjjxp568"]
+[gd_scene load_steps=5 format=3 uid="uid://dld0svjjxp568"]
 
 [ext_resource type="PackedScene" uid="uid://dwmqlfkacpaq3" path="res://World/base_world.tscn" id="1_n4brc"]
 [ext_resource type="PackedScene" uid="uid://dbeucn1wqoanu" path="res://Camera/camera.tscn" id="2_tgtsx"]
 [ext_resource type="PackedScene" uid="uid://drdj8h0tpb0bf" path="res://World/NextLevelAdvance.tscn" id="3_okhc8"]
+[ext_resource type="PackedScene" uid="uid://cyd166ysv7kva" path="res://World/Worlds/4.tscn" id="4_6o3gm"]
 
 [node name="BaseWorld" instance=ExtResource("1_n4brc")]
 
@@ -19,3 +20,4 @@ layer_0/tile_data = PackedInt32Array(262163, 1, 0, 327699, 1, 0, 393235, 1, 0, 4
 
 [node name="NextLevelAdvance" parent="." index="4" instance=ExtResource("3_okhc8")]
 position = Vector2(1344, 1024)
+next_scene = ExtResource("4_6o3gm")
